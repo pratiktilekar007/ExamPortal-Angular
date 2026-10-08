@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-card class="instruction-card">
+    <mat-card-header>
+      <mat-card-title>Quiz Instructions</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>Please read all instructions carefully before starting the quiz:</p>
+
+      <mat-list>
+        <mat-list-item>• Total number of questions: <b>{{quize().numberOfQuestion}}</b></mat-list-item>
+        <mat-list-item>• Time allotted: <b>{{quize().numberOfQuestion * 2}}</b></mat-list-item>
+        <mat-list-item>• Each question carries <b>{{ quize().maxMarks/quize().numberOfQuestion  }}</b></mat-list-item>
+        <mat-list-item>• No negative marking</mat-list-item>
+        <mat-list-item>• Do not refresh the page during the quiz</mat-list-item>
+        <mat-list-item>• Click "Submit" once you finish</mat-list-item>
+      </mat-list>
+
+      <mat-divider></mat-divider>
+
+      <div class="warning">
+        ⚠️ Make sure you have a stable internet connection.
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" (click)="stratQuize()">
+        Start Quiz
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

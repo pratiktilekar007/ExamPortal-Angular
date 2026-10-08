@@ -1,0 +1,33 @@
+<br>
+
+<div class="bootstrap-wrapper">
+    <div class="container-fuild">
+        <div class="row">
+            @for (quz of quize(); track quz.qid) {
+            <div class="col-md-4">
+                <mat-card class="category-card">
+                    <mat-card-header>
+                        <mat-card-title>Title : {{ quz.title }}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p class="truncate">Description : {{ quz.description }}</p>
+                    </mat-card-content>
+                    <mat-card-content>
+                        <p>maxMarks : {{ quz.maxMarks }}</p>
+                    </mat-card-content>
+                    <mat-card-content>
+                        <p>numberOfQuestion : {{ quz.numberOfQuestion }}</p>
+                    </mat-card-content>
+                    <mat-card-content>
+                        <p>category : {{ quz.category.title }}</p>
+                        <div class="container  mt15">
+                            <button mat-raised-button [routerLink]="'/user/instruction/'+quz.qid">Start Quize</button>
+                        </div>
+                    </mat-card-content>
+                   
+                </mat-card>
+            </div>
+            }
+        </div>
+    </div>
+</div>

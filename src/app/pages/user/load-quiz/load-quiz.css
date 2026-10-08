@@ -1,0 +1,13 @@
+.category-card {
+  margin-bottom: 20px; /* Adjust this value for more/less space */
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.truncate{
+    display: block;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

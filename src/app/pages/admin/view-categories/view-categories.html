@@ -1,0 +1,12 @@
+
+<br>
+@for (cat of categories(); track cat.title) {
+  <mat-card class="category-card">
+    <mat-card-header>
+      <mat-card-title>{{ cat.title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ cat.description }}</p>
+    </mat-card-content>
+  </mat-card>
+}

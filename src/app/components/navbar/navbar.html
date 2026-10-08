@@ -1,0 +1,23 @@
+<mat-toolbar class="color">
+  <button matIconButton class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu_book</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+
+  @if (isLoggedIn) {
+
+    <button (click)="logout()" matIconButton class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>logout</mat-icon>
+  </button>
+  }@else {
+  <button routerLink="/login" matIconButton class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>lock_person</mat-icon>
+  </button>
+ 
+  <button routerLink="/register" matIconButton class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>account_box</mat-icon>
+  </button>
+   }
+</mat-toolbar>
+

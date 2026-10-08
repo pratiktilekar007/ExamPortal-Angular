@@ -1,0 +1,54 @@
+<br><mat-card>
+    <h3>Update Quize</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+
+                <form  (ngSubmit)="updateData()">
+
+                    <mat-form-field class="w100">
+                        <mat-label>Quize Title</mat-label>
+                        <input type="text" [(ngModel)]="quize().title" name="title" placeholder="Enter quize Title here" matInput>
+                    </mat-form-field>
+
+                    <mat-form-field class="w100" appearance="outline">
+                        <mat-label>Description</mat-label>
+                        <textarea [(ngModel)]="quize().description" name="description" matInput placeholder="Enter quize description here">
+                                </textarea>
+                    </mat-form-field> 
+
+                    <div class="row">
+                        <div class="col-md-6"> <mat-form-field class="w100">
+                                <mat-label>maxMarks</mat-label>
+                                <input [(ngModel)]="quize().maxMarks" type="text" name="maxMarks" placeholder="Enter maxMarks here" matInput>
+                            </mat-form-field></div>
+                        <div class="col-md-6"> <mat-form-field class="w100">
+                                <mat-label>numberOfQuestion</mat-label>
+                                <input [(ngModel)]="quize().numberOfQuestion" type="text" name="numberOfQuestion" placeholder="Enter numberOfQuestion here" matInput>
+                            </mat-form-field></div>
+
+                    </div>
+
+                    <p><mat-slide-toggle  [(ngModel)]="quize().active" name="active">Active Status!</mat-slide-toggle></p>
+
+                    <mat-form-field class="w100" appearance="outline">
+                         <mat-label>Selete Category</mat-label>
+                        <mat-select name="category" [(ngModel)]="quize().category.id">
+                            @for (cat of categories(); track cat.id) {
+                            <mat-option [value]="cat.id">{{cat.title}}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+
+                    <div class="container  mt15"  style="text-align: center;">
+                            <button mat-raised-button>Update Quize</button>
+                    </div>
+                    <br>
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</mat-card>

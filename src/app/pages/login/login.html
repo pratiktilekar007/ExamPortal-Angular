@@ -1,0 +1,54 @@
+<div class="login-container">
+    <mat-card class="login-card">
+        <mat-card-header>
+            <mat-card-title>Welcome Back</mat-card-title>
+            <mat-card-subtitle>Please login to your account</mat-card-subtitle>
+        </mat-card-header>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <mat-card-content>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>username</mat-label>
+                    <input matInput formControlName="username" placeholder="username">
+                    <mat-icon matSuffix>username</mat-icon>
+                    @if (loginForm.get('username')?.hasError('username')) {
+                    <mat-error>Please enter a valid email</mat-error>
+                    }
+                </mat-form-field> 
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Password</mat-label>
+   
+                     @if (loginForm.get('password')?.hasError('minlength')) {
+                    <mat-error>Please enter a Password</mat-error>
+                    }
+                    <input matInput [type]="hidePassword() ? 'password' : 'text'" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="togglePassword($event)" type="button">
+                        <mat-icon>{{ hidePassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </button>
+ 
+                   
+                </mat-form-field>
+            </mat-card-content>
+
+            <div class="captcha-section">
+                            <div class="captcha-container">
+                <canvas #captchaCanvas width="120" height="40"></canvas>
+                <button type="button" (click)="refreshCaptcha()">
+                    <span class="material-icons">refresh</span>
+                </button>
+                </div>
+ 
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Enter Verification Code</mat-label>
+                    <input matInput formControlName="captcha" placeholder="Case sensitive">
+                </mat-form-field> 
+            </div> 
+
+            <button mat-flat-button color="primary" class="full-width" [disabled]="loginForm.invalid"
+                >
+                LOGIN
+            </button>
+        </form>
+    </mat-card>
+</div>

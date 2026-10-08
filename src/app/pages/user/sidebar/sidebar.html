@@ -1,0 +1,20 @@
+<br>
+
+<mat-card>
+    <mat-action-list>
+        <div mat-subheader>User Side Bar</div>
+        
+        <button mat-list-item routerLink="/user"> <mat-icon mat-list-icon>home</mat-icon>
+            Home
+        </button>
+        
+        @for (cat of categories(); track cat.id) {
+        <button mat-list-item [routerLink]="'/user/loadquiz/'+cat.id"> <mat-icon mat-list-icon>quiz</mat-icon>
+            {{ cat.title }}
+        </button>
+        }
+        <button mat-list-item routerLink="/admin/profile"> <mat-icon mat-list-icon>logout</mat-icon>
+            Logout
+        </button>
+    </mat-action-list>
+</mat-card>

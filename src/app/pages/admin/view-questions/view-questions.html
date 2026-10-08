@@ -1,0 +1,46 @@
+<br>
+
+<h3>Question of {{ qtitle}}</h3>
+
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            @for(que of Questions(); track que.quesId){
+            <mat-card class="category-card">
+                <mat-card-content>
+                   <b> Q </b> {{que.content}}
+                   <br>
+                   <br>
+
+                   <div class="container-fluid">
+                    <div class="row">
+                    <div class="col-md-6">
+                       <p>1] {{que.option1}}</p>
+                    </div>
+
+                    <div class="col-md-6">
+                       <p> 2] {{que.option2}}</p>
+                    </div>
+
+                    <div class="col-md-6">
+                      <p> 3] {{que.option3}}</p>
+                    </div>
+
+                    <div class="col-md-6">
+                       <p> 4] {{que.option4}}</p>
+                    </div>
+                    </div>
+                   </div>
+                   <mat-divider></mat-divider>
+                   <br>
+                   <p><b>correct ans : </b> {{que.answer}}</p>
+                   
+                   <button mat-raised-button (click)="deleteQuestion(que.quesId)">Delete</button> &nbsp;
+                   <button mat-raised-button >Update</button> &nbsp;
+                </mat-card-content>
+                
+            </mat-card>
+            }
+        </div>
+    </div>
+</div>
